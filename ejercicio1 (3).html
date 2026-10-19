@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro y análisis de calificaciones</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Registro y análisis de calificaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <form id="formIniciar">
+                        <label for="cantidad">Cantidad de evaluaciones:</label>
+                        <input type="number" id="cantidad" step="any" size="5">
+                        <button type="button" id="btnIniciar">Iniciar</button>
+                    </form>
+                    <p id="mensajeCantidad"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <form id="formRegistrar">
+                        <label for="nota" id="etiqueta">Calificación (0 a 10):</label>
+                        <input type="number" id="nota" step="any">
+                        <button type="button" id="btnRegistrar">Registrar</button>
+                    </form>
+                    <p id="mensajeNota"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Calificaciones registradas</h3>
+                    <table border="1" id="tabla"></table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" id="btnAnalizar">Analizar</button>
+                    <button type="button" id="btnReiniciar">Reiniciar</button>
+                    <p id="mensajeAnalisis"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="seccionResultados"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="ejercicio1.js"></script>
+</body>
+</html>

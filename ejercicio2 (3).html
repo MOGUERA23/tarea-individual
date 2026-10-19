@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de ventas diarias</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Control de ventas diarias de una tienda</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <form id="formIniciar">
+                        <label for="dias">Cantidad de días:</label>
+                        <input type="number" id="dias" step="any" size="5">
+                        <button type="button" id="btnIniciar">Iniciar</button>
+                    </form>
+                    <p id="mensajeDias"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <form id="formRegistrar">
+                        <label for="venta" id="etiqueta">Venta del día (USD):</label>
+                        <input type="number" id="venta" step="any">
+                        <button type="button" id="btnRegistrar">Registrar</button>
+                    </form>
+                    <p id="mensajeVenta"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Ventas registradas</h3>
+                    <table border="1" id="tabla"></table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" id="btnAnalizar">Analizar</button>
+                    <button type="button" id="btnReiniciar">Reiniciar</button>
+                    <p id="mensajeAnalisis"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="seccionResultados"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="ejercicio2.js"></script>
+</body>
+</html>
