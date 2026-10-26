@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios con Vectores Numericos</title>
+    <style>
+        table td {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h4>Ejercicio con Vectores</h4>
+    <div>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Dimension del arreglo:</td>
+                    <td>
+                        <select id="select-dimension-arreglo">
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ingrese valor a buscar:</td>
+                    <td><input type="text" name="" id="id-valor-busqueda" maxlength="4" size="5"></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+    <br>
+    <table id="id-table-vector-numerico" border="1" cellspacing="1" cellpadding="1">
+        <thead>
+            <tr>
+                <td colspan="10">Vector numerico de N elementos</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5"><button id="btn-cargar-vector">Cargar Vector</button></td>
+                <td colspan="5"><button id="btn-vaciar-vector">Vaciar Vector</button></td>
+            </tr>
+            <tr>
+                <td colspan="5"><button id="btn-numero-mayor">Numero Mayor</button></td>
+                <td colspan="5"><button id="btn-numero-menor">Numero Menor</button></td>
+            </tr>
+            <tr>
+                <td colspan="5"><button id="btn-sumar-valores">Suma de Valores</button></td>
+                <td colspan="5"><button id="btn-producto-vector">Producto de Valores</button></td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <button id="btn-calcular-moda">Moda</button>
+                </td>
+                <td colspan="5">
+                    <button id="btn-calcular-media">Media</button>
+                    <button id="btn-calcular-mediana">Mediana</button>
+                </td>
+            </tr>
+
+            <!-- ================= NUEVOS CONTROLES: TAREA 02 ================= -->
+
+            <!-- Ordenamiento -->
+            <tr>
+                <td colspan="10">
+                    <b>Ordenamiento</b> &nbsp; Orden:
+                    <select id="select-orden">
+                        <option value="asc">Ascendente</option>
+                        <option value="desc">Descendente</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5"><button id="btn-ordenar-seleccion">Ordenar Selección</button></td>
+                <td colspan="5"><button id="btn-ordenar-burbuja">Ordenar Burbuja</button></td>
+            </tr>
+            <tr>
+                <td colspan="5"><button id="btn-ordenar-insercion">Ordenar Inserción</button></td>
+                <td colspan="5"><button id="btn-ordenar-fusion">Ordenar por Fusión</button></td>
+            </tr>
+
+            <!-- Búsqueda (usa el campo "Ingrese valor a buscar") -->
+            <tr>
+                <td colspan="10"><b>Búsqueda</b></td>
+            </tr>
+            <tr>
+                <td colspan="5"><button id="btn-busqueda-secuencial">Búsqueda Secuencial</button></td>
+                <td colspan="5"><button id="btn-busqueda-binaria">Búsqueda Binaria</button></td>
+            </tr>
+
+            <!-- Transformaciones básicas -->
+            <tr>
+                <td colspan="10"><b>Transformaciones básicas</b></td>
+            </tr>
+            <tr>
+                <td colspan="5"><button id="btn-invertir-vector">Invertir Vector</button></td>
+                <td colspan="5"><button id="btn-eliminar-duplicados">Eliminar Duplicados</button></td>
+            </tr>
+
+            <!-- Transformaciones medio -->
+            <tr>
+                <td colspan="10"><b>Transformaciones medio</b></td>
+            </tr>
+            <tr>
+                <td colspan="10">
+                    Número de posiciones:
+                    <input type="text" id="id-num-posiciones" size="3" maxlength="3" value="1">
+                    <label><input type="radio" name="direccion-rotacion" value="izquierda" checked> Izquierda</label>
+                    <label><input type="radio" name="direccion-rotacion" value="derecha"> Derecha</label>
+                    <button id="btn-rotar-vector">Rotar Vector</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="10">
+                    Primera posición (0-N):
+                    <input type="text" id="id-posicion-1" size="3" maxlength="3">
+                    Segunda posición (0-N):
+                    <input type="text" id="id-posicion-2" size="3" maxlength="3">
+                    <button id="btn-intercambiar-elementos">Intercambiar Elementos</button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <td colspan="2">Calculos con vectores </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Resultado:</td>
+                <td colspan="2"><input type="text" id="id-txt-respuesta" size="70"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        /* =====================================================================
+           VARIABLES GLOBALES
+           ===================================================================== */
+        const POR_FILA = 10;      // columnas de la tabla (igual que el colspan="10" del HTML)
+        let vector = [];          // VECTOR GLOBAL: todas las operaciones trabajan sobre él
+
+        // Referencias a elementos del HTML existente
+        const tbodyVector = document.querySelector("#id-table-vector-numerico tbody");
+        const TBODY_INICIAL = tbodyVector.innerHTML;   // se guarda el contenido original (índices 0-9 y ceros)
+
+        /* =====================================================================
+           FUNCIONES DE APOYO (interfaz y validaciones)
+           ===================================================================== */
+
+        // Escribe un mensaje en el campo "Resultado"
+        function mostrarResultado(texto) {
+            document.getElementById("id-txt-respuesta").value = texto;
+        }
+
+        // Convierte el vector a texto: [10, 20, 30]
+        function vectorATexto(v) {
+            return "[" + v.join(", ") + "]";
+        }
+
+        // Dibuja el vector en la tabla: una fila de índices y una fila de valores
+        // por cada bloque de 10 elementos. Los valores se pueden editar con un clic.
+        function mostrarVector() {
+            if (vector.length === 0) {
+                tbodyVector.innerHTML = TBODY_INICIAL;   // vuelve a la tabla original
+                return;
+            }
+            let html = "";
+            for (let ini = 0; ini < vector.length; ini += POR_FILA) {
+                const fin = Math.min(ini + POR_FILA, vector.length);
+                html += "<tr>";
+                for (let i = ini; i < fin; i++) html += "<td>" + i + "</td>";
+                html += "</tr><tr>";
+                for (let i = ini; i < fin; i++) {
+                    html += '<td contenteditable="true" data-pos="' + i + '">' + vector[i] + "</td>";
+                }
+                html += "</tr>";
+            }
+            tbodyVector.innerHTML = html;
+        }
+
+        // Verifica que el vector tenga elementos antes de procesar (caso borde: vector vacío)
+        function validarVector() {
+            if (vector.length === 0) {
+                mostrarResultado("Error: el vector está vacío. Primero presione 'Cargar Vector'.");
+                return false;
+            }
+            return true;
+        }
+
+        // Devuelve true si el orden seleccionado es ascendente
+        function esAscendente() {
+            return document.getElementById("select-orden").value === "asc";
+        }
+
+        function textoOrden() {
+            return esAscendente() ? "ascendente" : "descendente";
+        }
+
+        // Intercambia dos posiciones del vector global (usa una variable auxiliar)
+        function intercambiar(i, j) {
+            const aux = vector[i];
+            vector[i] = vector[j];
+            vector[j] = aux;
+        }
+
+        // Reemplaza el contenido del vector global (mantiene la misma referencia)
+        function reemplazarVector(nuevo) {
+            vector.splice(0, vector.length, ...nuevo);
+        }
+
+        /* =====================================================================
+           BASE: CARGAR / VACIAR
+           ===================================================================== */
+
+        // Llena el vector con números aleatorios entre 1 y 99 según la dimensión elegida
+        function cargarVector() {
+            const n = parseInt(document.getElementById("select-dimension-arreglo").value, 10);
+            vector = [];
+            for (let i = 0; i < n; i++) {
+                vector.push(Math.floor(Math.random() * 99) + 1);
+            }
+            mostrarVector();
+            mostrarResultado("Vector cargado con " + n + " elementos: " + vectorATexto(vector));
+        }
+
+        function vaciarVector() {
+            vector = [];
+            mostrarVector();
+            mostrarResultado("Vector vaciado.");
+        }
+
+        /* =====================================================================
+           1. ALGORITMOS DE ORDENAMIENTO (ASC / DESC)
+           ===================================================================== */
+
+        /* ORDENAMIENTO POR SELECCIÓN
+           En cada pasada busca el menor (o mayor si es DESC) de la parte no
+           ordenada y lo coloca en la posición i. */
+        function ordenarSeleccion(asc) {
+            for (let i = 0; i < vector.length - 1; i++) {
+                let elegido = i;
+                for (let j = i + 1; j < vector.length; j++) {
+                    if (asc ? vector[j] < vector[elegido] : vector[j] > vector[elegido]) {
+                        elegido = j;
+                    }
+                }
+                if (elegido !== i) intercambiar(i, elegido);
+            }
+        }
+
+        /* ORDENAMIENTO BURBUJA
+           Compara pares vecinos y los intercambia si están en mal orden. En cada
+           pasada el elemento más "pesado" sube al final. Si en una pasada no hubo
+           intercambios, el vector ya está ordenado y se detiene. */
+        function ordenarBurbuja(asc) {
+            for (let i = 0; i < vector.length - 1; i++) {
+                let huboCambio = false;
+                for (let j = 0; j < vector.length - 1 - i; j++) {
+                    if (asc ? vector[j] > vector[j + 1] : vector[j] < vector[j + 1]) {
+                        intercambiar(j, j + 1);
+                        huboCambio = true;
+                    }
+                }
+                if (!huboCambio) break;
+            }
+        }
+
+        /* ORDENAMIENTO POR INSERCIÓN
+           Toma cada elemento (clave) y lo inserta en su lugar correcto dentro de
+           la parte izquierda que ya está ordenada, desplazando los demás a la
+           derecha. */
+        function ordenarInsercion(asc) {
+            for (let i = 1; i < vector.length; i++) {
+                const clave = vector[i];
+                let j = i - 1;
+                while (j >= 0 && (asc ? vector[j] > clave : vector[j] < clave)) {
+                    vector[j + 1] = vector[j];
+                    j--;
+                }
+                vector[j + 1] = clave;
+            }
+        }
+
+        /* ORDENAMIENTO POR FUSIÓN (Merge Sort)
+           Divide el vector en mitades (recursivamente) hasta tener 1 elemento y
+           luego fusiona las mitades ya ordenadas comparando sus primeros
+           elementos. Usa vectores temporales de apoyo. */
+        function fusionar(izq, der, asc) {
+            const res = [];
+            let i = 0, j = 0;
+            while (i < izq.length && j < der.length) {
+                if (asc ? izq[i] <= der[j] : izq[i] >= der[j]) res.push(izq[i++]);
+                else res.push(der[j++]);
+            }
+            // Lo que sobre de cualquiera de las dos mitades ya está ordenado
+            return res.concat(izq.slice(i), der.slice(j));
+        }
+
+        function mergeSort(arr, asc) {
+            if (arr.length <= 1) return arr;
+            const medio = Math.floor(arr.length / 2);
+            const izq = mergeSort(arr.slice(0, medio), asc);
+            const der = mergeSort(arr.slice(medio), asc);
+            return fusionar(izq, der, asc);
+        }
+
+        function ordenarFusion(asc) {
+            reemplazarVector(mergeSort(vector.slice(), asc));
+        }
+
+        // Función común que usan los 4 botones de ordenamiento
+        function ejecutarOrdenamiento(nombre, algoritmo) {
+            if (!validarVector()) return;
+            algoritmo(esAscendente());
+            mostrarVector();
+            mostrarResultado("Ordenamiento " + nombre + " (" + textoOrden() + "): " + vectorATexto(vector));
+        }
+
+        /* =====================================================================
+           2. ALGORITMOS DE BÚSQUEDA
+           ===================================================================== */
+
+        // Lee y valida el valor del campo "Ingrese valor a buscar"
+        function leerValorBuscado() {
+            const texto = document.getElementById("id-valor-busqueda").value.trim();
+            if (texto === "" || isNaN(Number(texto))) {
+                mostrarResultado("Error: ingrese un valor numérico válido en 'Ingrese valor a buscar'.");
+                return null;
+            }
+            return Number(texto);
+        }
+
+        /* BÚSQUEDA SECUENCIAL
+           Recorre el vector elemento por elemento y guarda todas las posiciones
+           donde aparece el valor. */
+        function busquedaSecuencial() {
+            if (!validarVector()) return;
+            const buscado = leerValorBuscado();
+            if (buscado === null) return;
+
+            const posiciones = [];
+            for (let i = 0; i < vector.length; i++) {
+                if (vector[i] === buscado) posiciones.push(i);
+            }
+
+            if (posiciones.length === 0) {
+                mostrarResultado("Búsqueda secuencial: el valor " + buscado + " NO se encontró en el vector.");
+            } else {
+                mostrarResultado("Búsqueda secuencial: el valor " + buscado + " se encontró en la(s) posición(es): " +
+                    posiciones.join(", ") + " (" + posiciones.length + " coincidencia(s)).");
+            }
+        }
+
+        // Revisa si el vector está ordenado de menor a mayor
+        function estaOrdenadoAsc() {
+            for (let i = 1; i < vector.length; i++) {
+                if (vector[i - 1] > vector[i]) return false;
+            }
+            return true;
+        }
+
+        /* BÚSQUEDA BINARIA
+           Requiere vector ordenado ASC. Compara con el elemento central: si es
+           el buscado termina; si es menor, descarta la mitad izquierda; si es
+           mayor, descarta la derecha. Repite hasta encontrarlo o quedarse sin
+           rango. */
+        function busquedaBinaria() {
+            if (!validarVector()) return;
+            const buscado = leerValorBuscado();
+            if (buscado === null) return;
+
+            // Si no está ordenado, se ordena automáticamente (ascendente)
+            let aviso = "";
+            if (!estaOrdenadoAsc()) {
+                reemplazarVector(mergeSort(vector.slice(), true));
+                mostrarVector();
+                aviso = " (El vector se ordenó automáticamente en forma ascendente: " + vectorATexto(vector) + ")";
+            }
+
+            let bajo = 0, alto = vector.length - 1, encontrado = -1, pasos = 0;
+            while (bajo <= alto) {
+                pasos++;
+                const medio = Math.floor((bajo + alto) / 2);
+                if (vector[medio] === buscado) { encontrado = medio; break; }
+                if (vector[medio] < buscado) bajo = medio + 1;
+                else alto = medio - 1;
+            }
+
+            if (encontrado === -1) {
+                mostrarResultado("Búsqueda binaria: el valor " + buscado + " NO se encontró (" + pasos + " paso(s))." + aviso);
+                return;
+            }
+
+            // Como el vector está ordenado, los repetidos están pegados al encontrado
+            let ini = encontrado, fin = encontrado;
+            while (ini > 0 && vector[ini - 1] === buscado) ini--;
+            while (fin < vector.length - 1 && vector[fin + 1] === buscado) fin++;
+            const posiciones = [];
+            for (let i = ini; i <= fin; i++) posiciones.push(i);
+
+            mostrarResultado("Búsqueda binaria: el valor " + buscado + " se encontró en la(s) posición(es): " +
+                posiciones.join(", ") + " (" + pasos + " paso(s))." + aviso);
+        }
+
+        /* =====================================================================
+           3. TRANSFORMACIONES BÁSICAS
+           ===================================================================== */
+
+        /* INVERTIR: intercambia el primero con el último, el segundo con el
+           penúltimo, etc., hasta llegar a la mitad. */
+        function invertirVector() {
+            if (!validarVector()) return;
+            const original = vector.slice();
+            for (let i = 0; i < Math.floor(vector.length / 2); i++) {
+                intercambiar(i, vector.length - 1 - i);
+            }
+            mostrarVector();
+            mostrarResultado("Vector invertido. Original: " + vectorATexto(original) +
+                " → Resultado: " + vectorATexto(vector));
+        }
+
+        /* ELIMINAR DUPLICADOS: recorre el vector y conserva sólo la primera
+           aparición de cada valor. Los repetidos se guardan en un vector temporal
+           para informar cuáles se quitaron. */
+        function eliminarDuplicados() {
+            if (!validarVector()) return;
+            const unicos = [];
+            const eliminados = [];
+            for (let i = 0; i < vector.length; i++) {
+                if (unicos.includes(vector[i])) eliminados.push(vector[i]);
+                else unicos.push(vector[i]);
+            }
+
+            if (eliminados.length === 0) {
+                mostrarResultado("Eliminar duplicados: no hay valores repetidos. Vector: " + vectorATexto(vector));
+                return;
+            }
+            reemplazarVector(unicos);
+            mostrarVector();
+            mostrarResultado("Eliminar duplicados: se quitaron " + eliminados.length + " elemento(s) repetido(s) (" +
+                eliminados.join(", ") + "). Nuevo vector (" + vector.length + " elementos): " + vectorATexto(vector));
+        }
+
+        /* =====================================================================
+           4. TRANSFORMACIONES MEDIO
+           ===================================================================== */
+
+        /* ROTAR VECTOR
+           Derecha: los últimos k elementos pasan al inicio.
+           Izquierda: los primeros k elementos pasan al final. */
+        function rotarVector() {
+            if (!validarVector()) return;
+            const texto = document.getElementById("id-num-posiciones").value.trim();
+            const n = Number(texto);
+            if (texto === "" || !Number.isInteger(n) || n < 1 || n > vector.length) {
+                mostrarResultado("Error: el número de posiciones debe ser un entero entre 1 y " + vector.length + ".");
+                return;
+            }
+
+            const direccion = document.querySelector('input[name="direccion-rotacion"]:checked').value;
+            const original = vector.slice();
+            const k = n % vector.length;   // si n = tamaño, el vector queda igual
+
+            let rotado;
+            if (direccion === "derecha") {
+                rotado = vector.slice(vector.length - k).concat(vector.slice(0, vector.length - k));
+            } else {
+                rotado = vector.slice(k).concat(vector.slice(0, k));
+            }
+            reemplazarVector(rotado);
+            mostrarVector();
+            mostrarResultado("Rotación de " + n + " posición(es) a la " + direccion.toUpperCase() + ". Original: " +
+                vectorATexto(original) + " → Resultado: " + vectorATexto(vector));
+        }
+
+        /* INTERCAMBIAR ELEMENTOS
+           Valida que las dos posiciones existan y sean distintas, y luego
+           intercambia sus valores. */
+        function intercambiarElementos() {
+            if (!validarVector()) return;
+            const t1 = document.getElementById("id-posicion-1").value.trim();
+            const t2 = document.getElementById("id-posicion-2").value.trim();
+            const p1 = Number(t1), p2 = Number(t2);
+            const max = vector.length - 1;
+
+            if (t1 === "" || t2 === "" || !Number.isInteger(p1) || !Number.isInteger(p2)) {
+                mostrarResultado("Error: ingrese dos posiciones enteras.");
+                return;
+            }
+            if (p1 < 0 || p1 > max || p2 < 0 || p2 > max) {
+                mostrarResultado("Error: las posiciones deben estar entre 0 y " + max + ".");
+                return;
+            }
+            if (p1 === p2) {
+                mostrarResultado("Error: las posiciones deben ser diferentes.");
+                return;
+            }
+
+            const v1 = vector[p1], v2 = vector[p2];
+            intercambiar(p1, p2);
+            mostrarVector();
+            mostrarResultado("Intercambio: el " + v1 + " de la posición " + p1 + " pasó a la posición " + p2 +
+                " y el " + v2 + " de la posición " + p2 + " pasó a la posición " + p1 + ". Vector: " + vectorATexto(vector));
+        }
+
+        /* =====================================================================
+           EVENT LISTENERS
+           ===================================================================== */
+
+        // Edición manual de valores: clic en una celda, escribir y presionar Enter
+        // (sirve para probar con los ejemplos del enunciado, ej. [10, 20, 30, 40, 50])
+        tbodyVector.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" && e.target.matches("td[data-pos]")) {
+                e.preventDefault();
+                e.target.blur();
+            }
+        });
+        tbodyVector.addEventListener("focusout", function (e) {
+            if (!e.target.matches("td[data-pos]")) return;
+            const pos = Number(e.target.dataset.pos);
+            const texto = e.target.textContent.trim();
+            if (texto === "" || isNaN(Number(texto))) {
+                e.target.textContent = vector[pos];     // restaura el valor anterior
+                mostrarResultado("Error: sólo se permiten valores numéricos en el vector.");
+                return;
+            }
+            vector[pos] = Number(texto);
+            mostrarResultado("Vector actualizado: " + vectorATexto(vector));
+        });
+
+        // Botones base
+        document.getElementById("btn-cargar-vector").addEventListener("click", cargarVector);
+        document.getElementById("btn-vaciar-vector").addEventListener("click", vaciarVector);
+
+        // Ordenamiento
+        document.getElementById("btn-ordenar-seleccion").addEventListener("click", function () { ejecutarOrdenamiento("por Selección", ordenarSeleccion); });
+        document.getElementById("btn-ordenar-burbuja").addEventListener("click", function () { ejecutarOrdenamiento("Burbuja", ordenarBurbuja); });
+        document.getElementById("btn-ordenar-insercion").addEventListener("click", function () { ejecutarOrdenamiento("por Inserción", ordenarInsercion); });
+        document.getElementById("btn-ordenar-fusion").addEventListener("click", function () { ejecutarOrdenamiento("por Fusión", ordenarFusion); });
+
+        // Búsqueda
+        document.getElementById("btn-busqueda-secuencial").addEventListener("click", busquedaSecuencial);
+        document.getElementById("btn-busqueda-binaria").addEventListener("click", busquedaBinaria);
+
+        // Transformaciones
+        document.getElementById("btn-invertir-vector").addEventListener("click", invertirVector);
+        document.getElementById("btn-eliminar-duplicados").addEventListener("click", eliminarDuplicados);
+        document.getElementById("btn-rotar-vector").addEventListener("click", rotarVector);
+        document.getElementById("btn-intercambiar-elementos").addEventListener("click", intercambiarElementos);
+    </script>
+</body>
+
+</html>
